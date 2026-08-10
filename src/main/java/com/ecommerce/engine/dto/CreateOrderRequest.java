@@ -1,8 +1,6 @@
 package com.ecommerce.engine.dto;
 
-/**
- * Payload for placing a new order via POST /api/orders.
- */
+
 public class CreateOrderRequest {
 
     private Long userId;

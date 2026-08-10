@@ -17,12 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * REST controller for order lifecycle.
- * <p>
- * Demonstrates POST for creation and PUT for status transitions (PENDING → SHIPPED).
- * Orders link {@code user_id} and {@code product_id} foreign keys in PostgreSQL.
- */
+
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {
@@ -33,38 +28,32 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    /** GET /api/orders — all orders */
+
     @GetMapping
     public List<Order> getAllOrders() {
         return orderService.findAll();
     }
 
-    /** GET /api/orders/{id} */
+
     @GetMapping("/{id}")
     public Order getOrderById(@PathVariable Long id) {
         return orderService.findById(id);
     }
 
-    /** GET /api/orders/user/{userId} — purchase history with JOINed user & product */
+
     @GetMapping("/user/{userId}")
     public List<Order> getOrdersByUser(@PathVariable Long userId) {
         return orderService.findByUserId(userId);
     }
 
-    /**
-     * POST /api/orders — place an order.
-     * Body: { "userId": 1, "productId": 2, "quantity": 1 }
-     */
+
     @PostMapping
     public ResponseEntity<Order> placeOrder(@RequestBody CreateOrderRequest request) {
         Order order = orderService.placeOrder(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(order);
     }
 
-    /**
-     * PUT /api/orders/{id}/status?status=CONFIRMED
-     * Updates order state (fulfillment workflow).
-     */
+
     @PutMapping("/{id}/status")
     public Order updateOrderStatus(@PathVariable Long id, @RequestParam OrderStatus status) {
         return orderService.updateStatus(id, status);

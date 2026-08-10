@@ -1,14 +1,11 @@
 package com.ecommerce.engine.dto;
 
-/**
- * Request body for personalized product recommendations.
- * The service loads the user's order history and asks the LLM to suggest items.
- */
+
 public class AiRecommendationRequest {
 
     private Long userId;
 
-    /** Optional hint, e.g. "gift for a runner" */
+
     private String preferenceHint;
 
     public AiRecommendationRequest() {

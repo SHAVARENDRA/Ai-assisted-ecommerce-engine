@@ -9,12 +9,7 @@ import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 
-/**
- * Catalog item available for purchase.
- * <p>
- * {@code category} and {@code description} are used by Spring AI when interpreting
- * natural-language search queries (e.g. "affordable wireless headphones").
- */
+
 @Entity
 @Table(name = "products")
 public class Product {
@@ -38,7 +33,7 @@ public class Product {
     @Column(nullable = false)
     private Integer stockQuantity;
 
-    /** Required by JPA/Hibernate */
+
     public Product() {
     }
 

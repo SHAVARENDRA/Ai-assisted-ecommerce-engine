@@ -7,12 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-/**
- * Represents a registered shopper.
- * <p>
- * Mapped to the {@code users} table via JPA/Hibernate.
- * The Repository layer performs CRUD; the Service layer holds business rules.
- */
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -29,7 +24,7 @@ public class User {
 
     private String address;
 
-    /** Required by JPA/Hibernate */
+
     public User() {
     }
 

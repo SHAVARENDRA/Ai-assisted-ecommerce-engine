@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-/**
- * Global exception handler — converts service-layer errors into consistent JSON responses.
- * Keeps controllers thin (no try/catch in every method).
- */
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

@@ -15,12 +15,7 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-/**
- * Purchase record linking a {@link User} to a {@link Product}.
- * <p>
- * {@code @ManyToOne} creates foreign keys in PostgreSQL so you can JOIN orders
- * with users and products in repository queries.
- */
+
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -50,7 +45,7 @@ public class Order {
     @Column(nullable = false)
     private LocalDateTime orderDate;
 
-    /** Required by JPA/Hibernate */
+
     public Order() {
     }
 
